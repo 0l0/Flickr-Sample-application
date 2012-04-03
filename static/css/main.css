@@ -1,0 +1,203 @@
+@import "style.css";
+
+/*Global properties */
+body {
+  padding: 7px;
+  background: #F5F5F5 url(../img/bg.png) repeat-x;
+  color: #555;
+  font-family: "Arial", serif;
+  font-size: 14px;
+}
+
+a {
+  color: #565656;
+}
+
+a:hover {
+  color: #565656;
+  text-decoration: none;
+}
+
+header, .loader, .error {
+  text-align: center;
+}
+
+header {
+  margin-bottom: 20px;
+}
+
+footer {
+  text-align: center;
+  clear: both;
+}
+
+.main-panel {
+  margin-right: 300px;
+  padding: 5px 10px;
+  border: 1px #cccccc solid;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.right-panel {
+  width: 270px;
+  float: right;
+  padding: 5px 10px;
+  border: 1px #cccccc solid;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background: #DEE3E3;
+}
+
+h1, h2, h3 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.error {
+  color: #660000;
+}
+
+label {
+  font-weight: bold;
+  text-shadow: 0 1px 1px #FFF;
+}
+
+/*Text inputs*/
+.ux-text-input {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background: #F6F6F6;
+  border-color: #A4A4A4 #B9B9B9 #B9B9B9;
+  border-style: solid;
+  border-width: 1px;
+  -webkit-box-shadow: 0 1px 0 #FFF inset;
+  -moz-box-shadow: 0 1px 0 #FFF inset;
+  box-shadow: 0 1px 0 #FFF inset;
+  color: #666;
+  font-size: 13px;
+  padding: 7px 10px;
+}
+
+.ux-text-input:focus {
+  background: #FFF;
+  color: #444;
+  outline: none;
+}
+
+.ux-button {
+  color: #ffffff;
+  font-size: 16px;
+  padding: 3px;
+  text-decoration: none;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -webkit-box-shadow: 0px 1px 3px #666666;
+  -moz-box-shadow: 0px 1px 3px #666666;
+  text-shadow: 1px 1px 3px #666666;
+  border: solid #949494 1px;
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(#919191), to(#808080));
+  background: -moz-linear-gradient(top, #919191, #808080);
+  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#919191, endColorStr=#808080);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#919191, endColorStr=#808080);
+  display:inline-block; /* IE is so silly */
+}
+
+.ux-button:hover {
+  background: #999999;
+}
+/*Search results*/
+.search-results {
+  position: relative;
+}
+
+.search-results {
+    list-style: none;
+    padding: 0;
+}
+
+.search-results li {
+  display: block;
+  position: relative;
+  float: left;
+  width: 240px;
+  height: 240px;
+  margin: 3px;
+  padding: 10px;
+  text-align: center;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background: #F6F6F6;
+  border-color: #A4A4A4 #B9B9B9 #B9B9B9;
+  border-style: solid;
+  border-width: 1px;
+  -webkit-box-shadow: 0 1px 0 #FFF inset;
+  -moz-box-shadow: 0 1px 0 #FFF inset;
+  box-shadow: 0 1px 0 #FFF inset;
+
+}
+
+.search-results li .wrapper {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  width: 240px;
+  height: 240px;
+}
+
+.search-results li img {
+  cursor: pointer;
+  opacity: 0.75;
+  filter: alpha(opacity=75);
+}
+
+.search-results li:hover img{
+  cursor: pointer;
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+
+.search-results li button {
+  display: none;
+}
+
+.search-results li:hover button {
+  display: block;
+  position: absolute;
+  bottom: 10px;
+  left: 67px;
+}
+
+.search-results li:hover button.remove {
+  display: block;
+  position: absolute;
+  bottom: 10px;
+  left: 97px;
+}
+
+/*Pagination*/
+#photos-paginator {
+  margin-top: 10px;
+  clear: both;
+  text-align: center;
+}
+
+.pagination ul {
+  list-style: none;
+  padding: 0;
+}
+
+.pagination li {
+  display: inline-block;
+  position: relative;
+  margin: 0 5px;
+}
+
+.pagination li span {
+  font-weight: bold;
+}

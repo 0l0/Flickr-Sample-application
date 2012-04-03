@@ -1,0 +1,145 @@
+<!doctype html>
+<!-- saved from url=(0022)http://api.flickr.com/ -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>FliSearch - Find photos on Flickr</title>
+
+  <!-- Application styles -->
+  <link rel="stylesheet" href="static/css/main.css">
+</head>
+
+<body>
+
+<header>
+  <label>Find photos you like on Flickr
+  <input id="search-input" name="search-input" class="ux-text-input" type="text" placeholder="search phrase">
+  </label>
+  <button id="search-button" class="ux-button">Search</button>
+</header>
+
+<aside class="right-panel" role="complementary">
+  <h2>Favourite images</h2>
+  <div id="favourite-placeholder"></div>
+</aside>
+
+<div class="main-panel" role="main">
+  <div id="search-placeholder">No results loaded yet. Search for photos in search box.</div>
+</div>
+
+<footer>
+  CA, USA - 2012
+</footer>
+
+<!-- Templates -->
+
+<script type="text/template" id="photos-template">
+  <ul class="search-results">
+  </ul>
+  <div id="photos-paginator"></div>
+</script>
+
+<script type="text/template" id="search-photo-template">
+  <div class="wrapper">
+    <img data-id="<%=photo.id%>" src="<%=photo.image()%>" alt="<%-photo.attributes.title%>" title="<%-photo.attributes.title%>">
+  </div>
+  <% if (showAddToFavourites) { %>
+    <button class="ux-button add" data-id="<%=photo.id%>">Add To favourites</button>
+  <% } else { %>
+    <button class="ux-button remove" data-id="<%=photo.id%>">Remove</button>
+  <% } %>
+</script>
+
+<script type="text/template" id="searching-template">
+  <div class="loader">
+    <img src="static/img/loader.gif">
+  </div>
+</script>
+
+<script type="text/template" id="photo-template">
+  <figure>
+    <img data-id="<%=photo.id%>" src="<%=photo.image('z')%>" alt="<%-photo.attributes.title%>" title="<%-photo.attributes.title%>">
+    <figcaption>
+      <!--Outputting description without escaping, assuming Flickr filters malicious scripts-->
+      <h2><%=photo.attributes.title %></h2>
+      <% if(photo.attributes.description &&
+            photo.attributes.description._content &&
+            photo.attributes.description._content != 'undefined') { %>
+        <%=photo.attributes.description._content %>
+      <% } %>
+    </figcaption>
+  </figure>
+  <p>
+    <a target="_blank" href="<%=photo.flickrUrl()%>">See picture on Flickr.com</a>
+  </p>
+  <p>
+    <button class="ux-button">Add to favourites</button>
+  </p>
+</script>
+
+
+<script type="text/template" id="error-template">
+  <div class="error">
+    <%= errorMessage %>
+  </div>
+</script>
+
+<script type="text/template" id="paginator-template">
+  <ul class="pagination">
+    <% if (prev) { %>
+      <li>
+        <a href="#" data-page="<%=prev%>">Previous</a>
+      </li>
+    <% } %>
+    <% if (first) { %>
+    <li>
+      <a href="#" data-page="<%=first%>"><%=first%></a>
+    </li>
+    <% } %>
+    <% _.each(pages, function(page) { %>
+    <li>
+      <% if (currentPage != page ) { %>
+        <a href="#" data-page="<%=page%>"><%=page%></a>
+      <% } else { %>
+        <span><%=page%></span>
+      <% } %>
+    </li>
+    <% }); %>
+    <% if (last) { %>
+    <li>
+      <a href="#" data-page="<%=last%>"><%=last%></a>
+    </li>
+    <% } %>
+    <% if (next) { %>
+    <li>
+      <a href="#" data-page="<%=next%>">Next</a>
+    </li>
+    <% } %>
+  </ul>
+</script>
+
+<!-- Application source -->
+<script src="static/javascript/json2.js"></script>
+<script src="static/javascript/jquery-1.7.1.js"></script>
+<script src="static/javascript/underscore.js"></script>
+<script src="static/javascript/backbone.js"></script>
+<script src="static/javascript/models/photo.js"></script>
+<script src="static/javascript/application.js"></script>
+<script src="static/javascript/collections/favourites.js"></script>
+<script src="static/javascript/collections/searchResults.js"></script>
+<script src="static/javascript/views/error.js"></script>
+<script src="static/javascript/views/paginator.js"></script>
+<script src="static/javascript/views/favourites.js"></script>
+<script src="static/javascript/views/photo.js"></script>
+<script src="static/javascript/views/search.js"></script>
+<script src="static/javascript/views/searchBox.js"></script>
+<script src="static/javascript/views/searchPhoto.js"></script>
+<script src="static/javascript/routers/photos.js"></script>
+<script>
+  FliSearch.init();
+</script>
+</body>
+</html>
